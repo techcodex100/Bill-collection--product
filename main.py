@@ -64,21 +64,6 @@ async def generate_pdf(info: BillInfo):
     c.setFont("Helvetica-Bold", 10)
     c.setFillColor(black)
 
-    # Draw grid overlay for alignment/debugging
-    for x in range(0, int(width), 50):
-        c.setStrokeColorRGB(0.9, 0.9, 0.9)
-        c.line(x, 0, x, height)
-        c.setFillColorRGB(0.6, 0.6, 0.6)
-        c.drawString(x + 2, 10, str(x))
-        c.setFillColor(black)
-
-    for y in range(0, int(height), 50):
-        c.setStrokeColorRGB(0.9, 0.9, 0.9)
-        c.line(0, y, width, y)
-        c.setFillColorRGB(0.6, 0.6, 0.6)
-        c.drawString(2, y + 2, str(y))
-        c.setFillColor(black)
-
     # 🖊️ Draw dynamic fields on top of the image
     c.drawString(140, 615, info.date)
     c.drawString(150, 565, info.amount)
